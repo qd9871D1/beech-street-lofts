@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { UNITS, AMENITIES, SITE } from "@/lib/constants";
 import { Wifi, Tv, UtensilsCrossed, Coffee, Car, Wind, Package, Archive, Laptop, ShieldCheck, Moon, WashingMachine } from "lucide-react";
 import type { Metadata } from "next";
@@ -37,11 +38,27 @@ export default async function UnitPage({ params }: { params: Promise<{ slug: str
       </Link>
 
       <div className="grid md:grid-cols-2 gap-12">
-        {/* Photo */}
+        {/* Photos */}
         <div>
-          {/* PLACEHOLDER: unit photos → public/images/{unit.slug}-*.jpg */}
-          <div className="h-80 bg-slate-200 rounded-lg flex items-center justify-center text-gray-400">
-            Photo — {unit.name}
+          <div className="relative h-80 rounded-lg overflow-hidden mb-2">
+            <Image
+              src="/images/unit-23-loft-overview.jpeg"
+              alt="Loft overview"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {[
+              { src: "/images/unit-13-kitchen.jpeg", alt: "Kitchen" },
+              { src: "/images/unit-19-bedroom.jpeg", alt: "Bedroom" },
+              { src: "/images/unit-12-living-tv.jpeg", alt: "Living area" },
+            ].map((img) => (
+              <div key={img.src} className="relative h-24 rounded overflow-hidden">
+                <Image src={img.src} alt={img.alt} fill className="object-cover" />
+              </div>
+            ))}
           </div>
         </div>
 

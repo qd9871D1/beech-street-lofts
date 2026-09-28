@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { UNITS, AMENITIES, SITE } from "@/lib/constants";
 import { Wifi, Tv, UtensilsCrossed, Coffee, Car, Wind, Package, Archive, Laptop, ShieldCheck, Moon, WashingMachine } from "lucide-react";
 
@@ -10,8 +11,15 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-slate-900 text-white py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative bg-slate-900 text-white py-24 px-4 overflow-hidden">
+        <Image
+          src="/images/unit-23-loft-overview.jpeg"
+          alt="Beech Street Lofts loft interior"
+          fill
+          className="object-cover opacity-30"
+          priority
+        />
+        <div className="relative max-w-4xl mx-auto text-center">
           <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm mb-4">
             Downtown Moses Lake, WA
           </p>
@@ -50,9 +58,13 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6">
             {UNITS.map((unit) => (
               <div key={unit.slug} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
-                {/* PLACEHOLDER: unit photo → public/images/{slug}-hero.jpg */}
-                <div className="h-48 bg-slate-200 flex items-center justify-center text-gray-400 text-sm">
-                  Photo — {unit.name}
+                <div className="relative h-48">
+                  <Image
+                    src="/images/unit-02-exterior-hero.jpeg"
+                    alt={`${unit.name} exterior`}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="font-bold text-lg text-slate-900">{unit.name}</h3>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { UNITS } from "@/lib/constants";
 import type { Metadata } from "next";
 
@@ -19,8 +20,13 @@ export default function UnitsPage() {
         {UNITS.map((unit) => (
           <div key={unit.slug} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
             {/* PLACEHOLDER: unit photo → public/images/{unit.slug}-hero.jpg */}
-            <div className="h-56 bg-slate-200 flex items-center justify-center text-gray-400 text-sm">
-              Photo — {unit.name}
+            <div className="relative h-56">
+              <Image
+                src="/images/unit-02-exterior-hero.jpeg"
+                alt={`${unit.name} exterior`}
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="p-6">
               <h2 className="font-bold text-xl text-slate-900 mb-1">{unit.name}</h2>

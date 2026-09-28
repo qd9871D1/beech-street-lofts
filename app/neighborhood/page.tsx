@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { RESTAURANTS, ATTRACTIONS } from "@/lib/constants";
 import type { Metadata } from "next";
 
@@ -10,6 +11,19 @@ export const metadata: Metadata = {
 export default function NeighborhoodPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
+      {/* Neighborhood photo strip */}
+      <div className="grid grid-cols-3 gap-3 mb-10 -mx-4 md:mx-0">
+        {[
+          { src: "/images/neighborhood-aerial-lake.jpeg", alt: "Aerial lake view" },
+          { src: "/images/unit-01-exterior.jpeg", alt: "Beech Street exterior" },
+          { src: "/images/neighborhood-exterior-2.jpeg", alt: "Neighborhood exterior" },
+        ].map((img) => (
+          <div key={img.src} className="relative h-48 overflow-hidden rounded-lg">
+            <Image src={img.src} alt={img.alt} fill className="object-cover" />
+          </div>
+        ))}
+      </div>
+
       <h1 className="section-heading">The Neighborhood</h1>
       <p className="section-sub">
         Two blocks from Moses Lake&apos;s downtown core. The Farmer&apos;s Market is next door.
