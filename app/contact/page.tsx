@@ -24,9 +24,12 @@ function ContactForm() {
     e.preventDefault();
     setError("");
     try {
-      // PLACEHOLDER: replace with Formspree endpoint or Supabase API route
-      // await fetch("https://formspree.io/f/YOUR_FORM_ID", { method: "POST", ... })
-      // For now, just simulate success
+      const res = await fetch("https://formspree.io/f/xwlpalnz", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Form submission failed");
       setSubmitted(true);
     } catch {
       setError("Something went wrong. Please email us directly at " + SITE.email);
