@@ -1,69 +1,129 @@
-import Image from "next/image";
+import Link from "next/link";
+import { UNITS, AMENITIES, SITE } from "@/lib/constants";
+import { Wifi, Tv, UtensilsCrossed, Coffee, Car, Wind, Package, Archive, Laptop, ShieldCheck, Moon, WashingMachine } from "lucide-react";
 
-export default function Home() {
+const iconMap: Record<string, React.ElementType> = {
+  Wifi, Tv, UtensilsCrossed, Coffee, Car, Wind, Package, Archive, Laptop, ShieldCheck, Moon, WashingMachine,
+};
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      {/* Hero */}
+      <section className="bg-slate-900 text-white py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm mb-4">
+            Downtown Moses Lake, WA
           </p>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+            Live Downtown.<br />Work. Explore. Unwind.
+          </h1>
+          <p className="text-gray-300 text-xl mb-8 max-w-2xl mx-auto">
+            Fully furnished loft apartments in the heart of Moses Lake. One flat monthly
+            payment covers rent, utilities, and 1 gig WiFi. No booking fees. No surprises.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/units" className="btn-primary">View Available Units</Link>
+            <Link href="/neighborhood" className="btn-outline">Explore the Neighborhood</Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Bar */}
+      <section className="bg-amber-500 text-white py-4 px-4">
+        <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-8 text-sm font-semibold">
+          <span>30-Day Minimum Stay</span>
+          <span>All Utilities Included</span>
+          <span>1 Gig WiFi</span>
+          <span>Steps from 20+ Restaurants</span>
+          <span>No Booking Fees</span>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Units preview */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="section-heading text-center">Available Units</h2>
+          <p className="section-sub text-center">
+            Three loft 1-bedrooms. All mirror images — same layout, same amenities, same quality.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {UNITS.map((unit) => (
+              <div key={unit.slug} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+                {/* PLACEHOLDER: unit photo → public/images/{slug}-hero.jpg */}
+                <div className="h-48 bg-slate-200 flex items-center justify-center text-gray-400 text-sm">
+                  Photo — {unit.name}
+                </div>
+                <div className="p-6">
+                  <h3 className="font-bold text-lg text-slate-900">{unit.name}</h3>
+                  <p className="text-gray-600 text-sm mb-3">Loft 1-Bedroom · 1 Bath · All-Inclusive</p>
+                  <p className="text-2xl font-bold text-amber-600">
+                    ${unit.price.toLocaleString()}
+                    <span className="text-sm font-normal text-gray-500">/mo</span>
+                  </p>
+                  <p className="text-sm text-gray-500 mb-4">Available: {unit.available}</p>
+                  <div className="flex gap-2">
+                    <Link href={`/units/${unit.slug}`} className="btn-primary text-sm flex-1 text-center py-2 px-3">
+                      Details
+                    </Link>
+                    <a href={unit.ffUrl} target="_blank" rel="noopener noreferrer" className="btn-outline text-sm flex-1 text-center py-2 px-3">
+                      Book on FF
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Amenities */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="section-heading text-center">Everything Included</h2>
+          <p className="section-sub text-center">Move in Monday. Be comfortable by Tuesday.</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {AMENITIES.map((a) => {
+              const Icon = iconMap[a.icon];
+              return (
+                <div key={a.label} className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
+                  {!!Icon && <Icon className="text-amber-500 flex-shrink-0" size={20} />}
+                  <span className="text-sm text-slate-700 font-medium">{a.label}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Location teaser */}
+      <section className="py-20 px-4 bg-slate-900 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">Two Blocks from Everything</h2>
+          <p className="text-gray-300 text-lg mb-8">
+            The Farmer&apos;s Market is next door. Over 20 restaurants within walking distance.
+            McCosh Park, the Centennial Amphitheater, and the Japanese Peace Garden are steps away.
+            This isn&apos;t a generic furnished apartment — it&apos;s a place with character.
+          </p>
+          <Link href="/neighborhood" className="btn-primary">See the Neighborhood</Link>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 px-4 bg-amber-50">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-slate-900 mb-4">Ready to Book?</h2>
+          <p className="text-gray-600 mb-8">
+            Send us a quick inquiry — no commitment required. We typically respond within an hour.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/contact" className="btn-primary">Send an Inquiry</Link>
+            <a href={SITE.furnishedFinderUrl} target="_blank" rel="noopener noreferrer" className="btn-outline">
+              View on Furnished Finder
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

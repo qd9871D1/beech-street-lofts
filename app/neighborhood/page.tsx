@@ -1,0 +1,70 @@
+import Link from "next/link";
+import { RESTAURANTS, ATTRACTIONS } from "@/lib/constants";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Neighborhood",
+  description: "Beech Street Lofts sits two blocks from downtown Moses Lake. Restaurants, farmer's market, parks, and entertainment all within walking distance.",
+};
+
+export default function NeighborhoodPage() {
+  return (
+    <div className="max-w-5xl mx-auto px-4 py-16">
+      <h1 className="section-heading">The Neighborhood</h1>
+      <p className="section-sub">
+        Two blocks from Moses Lake&apos;s downtown core. The Farmer&apos;s Market is next door.
+        Over 20 restaurants within walking distance. This isn&apos;t a suburb — it&apos;s the center of things.
+      </p>
+
+      {/* Restaurants */}
+      <section className="mb-16">
+        <h2 className="text-2xl font-bold text-slate-900 mb-6">Nearby Restaurants</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {RESTAURANTS.map((r) => (
+            <div key={r} className="bg-gray-50 rounded px-4 py-3 text-sm text-slate-700 font-medium">
+              {r}
+            </div>
+          ))}
+        </div>
+        <p className="text-sm text-gray-500 mt-4">And many more — check Yelp for a full list.</p>
+      </section>
+
+      {/* Attractions */}
+      <section className="mb-16">
+        <h2 className="text-2xl font-bold text-slate-900 mb-6">Points of Interest</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          {ATTRACTIONS.map((a) => (
+            <div key={a.name} className="flex items-center justify-between border border-gray-200 rounded-lg px-5 py-4">
+              <span className="font-medium text-slate-800">{a.name}</span>
+              <span className="text-sm text-amber-600 font-semibold">{a.detail}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Creative Arts District */}
+      <section className="bg-slate-900 text-white rounded-xl p-10 mb-16">
+        <h2 className="text-2xl font-bold mb-4">Moses Lake&apos;s Creative Arts District</h2>
+        <p className="text-gray-300 leading-relaxed mb-4">
+          Beech Street Lofts sits in Moses Lake&apos;s Creative Arts District — the cultural
+          heart of the city. Street-level shops, galleries, restaurants, and community events
+          give this neighborhood a character you won&apos;t find in a generic apartment complex
+          on the outskirts of town.
+        </p>
+        <p className="text-gray-300 leading-relaxed">
+          Whether you&apos;re here for a 30-day work assignment or a 90-day relocation,
+          you&apos;ll actually enjoy where you live — not just endure it.
+        </p>
+      </section>
+
+      {/* CTA */}
+      <div className="text-center">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">Ready to Call This Home?</h2>
+        <div className="flex flex-wrap gap-4 justify-center">
+          <Link href="/units" className="btn-primary">View Available Units</Link>
+          <Link href="/contact" className="btn-outline">Send an Inquiry</Link>
+        </div>
+      </div>
+    </div>
+  );
+}
