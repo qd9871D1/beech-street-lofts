@@ -13,7 +13,7 @@ export default function UnitsPage() {
     <div className="max-w-6xl mx-auto px-4 py-16">
       <h1 className="section-heading">Available Units</h1>
       <p className="section-sub">
-        Three loft 1-bedrooms at 513 Beech St, Moses Lake. All mirror images —
+        Three loft 1-bedrooms at 503 S Beech St, Moses Lake. All mirror images —
         same layout, same amenities. Different availability dates and pricing noted below.
       </p>
       <div className="grid md:grid-cols-3 gap-8">

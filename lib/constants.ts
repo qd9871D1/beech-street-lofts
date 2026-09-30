@@ -1,7 +1,7 @@
 export const SITE = {
   name: "Beech Street Lofts",
   tagline: "Downtown Moses Lake | All-Inclusive Monthly Rentals",
-  address: "513 Beech St, Moses Lake, WA 98837",
+  address: "503 S Beech St, Moses Lake, WA 98837",
   phone: "509-855-1096",
   email: "info@beechstreetlofts.com",
   url: "https://beechstreetlofts.com",
