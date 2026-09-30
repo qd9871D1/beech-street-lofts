@@ -121,6 +121,37 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Healthcare worker callout */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-amber-600 font-semibold uppercase tracking-widest text-sm mb-3">Travel Nurses &amp; Healthcare Workers</p>
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Close to Samaritan Healthcare</h2>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              Samaritan Healthcare&apos;s new hospital on Clover Drive is a short drive from Beech Street Lofts.
+              Confluence Health Moses Lake is nearby too. No commute stress, no hotel bills — just a comfortable furnished loft with everything included.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              One flat monthly rate covers rent, all utilities, and 1 gig WiFi. Move in Monday, be settled by Tuesday.
+            </p>
+            <Link href="/contact" className="btn-primary">Check Availability</Link>
+          </div>
+          <div className="space-y-4">
+            {[
+              { label: "Samaritan Healthcare", detail: "~8 min drive" },
+              { label: "Confluence Health Moses Lake", detail: "~5 min drive" },
+              { label: "SILA Industries", detail: "~10 min drive" },
+              { label: "Wheeler Corridor", detail: "~5 min drive" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center justify-between border-b border-gray-200 pb-3">
+                <span className="text-slate-700 font-medium">{item.label}</span>
+                <span className="text-amber-600 font-semibold text-sm">{item.detail}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-4 bg-amber-50">
         <div className="max-w-2xl mx-auto text-center">

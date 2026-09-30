@@ -6,11 +6,11 @@ import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE.name} | Downtown Moses Lake Monthly Rentals`,
+    default: `${SITE.name} | Furnished Loft Apartments | Moses Lake, WA`,
     template: `%s | ${SITE.name}`,
   },
   description:
-    "Fully furnished loft 1-bedroom apartments in downtown Moses Lake, WA. All-inclusive monthly rentals — rent, utilities, 1 gig WiFi included. Steps from restaurants, farmer's market, and parks.",
+    "Furnished loft 1-bedroom apartments in downtown Moses Lake, WA. All-inclusive monthly rentals — rent, utilities, 1 gig WiFi included. Ideal for travel nurses, corporate housing, and insurance relocation. 30-day minimum.",
   metadataBase: new URL(SITE.url),
   openGraph: {
     siteName: SITE.name,

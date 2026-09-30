@@ -4,8 +4,8 @@ import { UNITS } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Available Units",
-  description: "Browse all three furnished loft 1-bedroom apartments at Beech Street Lofts in downtown Moses Lake, WA.",
+  title: "Available Units | Furnished Loft Apartments Moses Lake, WA",
+  description: "Browse all three furnished loft 1-bedroom apartments at Beech Street Lofts in downtown Moses Lake, WA. All-inclusive monthly rates from $1,495. Travel nurse and corporate housing welcome.",
 };
 
 export default function UnitsPage() {

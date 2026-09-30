@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const unit = UNITS.find((u) => u.slug === slug);
   if (!unit) return {};
   return {
-    title: unit.title,
-    description: `Furnished loft 1-bedroom in downtown Moses Lake. ${unit.name} — $${unit.price}/mo all-inclusive. Available ${unit.available}.`,
+    title: `${unit.title} | Furnished Loft Moses Lake, WA`,
+    description: `Furnished loft 1-bedroom in downtown Moses Lake, WA. ${unit.name} — $${unit.price}/mo all-inclusive (rent, utilities, 1 gig WiFi). Travel nurse and corporate housing welcome. Available ${unit.available}.`,
   };
 }
 
