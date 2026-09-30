@@ -8,6 +8,16 @@ export const metadata: Metadata = {
   description: "Beech Street Lofts sits two blocks from downtown Moses Lake. Restaurants, farmer's market, parks, and entertainment all within walking distance.",
 };
 
+const DISTANCES = [
+  { place: "Samaritan Healthcare", detail: "~8 min drive" },
+  { place: "Downtown core", detail: "2 blocks" },
+  { place: "Farmer's Market", detail: "Next door" },
+  { place: "Grant County Airport", detail: "~10 min drive" },
+  { place: "Columbia Basin College", detail: "~7 min drive" },
+  { place: "Walmart / Shopping", detail: "~5 min drive" },
+  { place: "I-90 on-ramp", detail: "~5 min drive" },
+];
+
 export default function NeighborhoodPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
@@ -29,6 +39,40 @@ export default function NeighborhoodPage() {
         Two blocks from Moses Lake&apos;s downtown core. The Farmer&apos;s Market is next door.
         Over 20 restaurants within walking distance. This isn&apos;t a suburb — it&apos;s the center of things.
       </p>
+
+      {/* Map + distance callouts */}
+      <section className="mb-16 grid md:grid-cols-2 gap-8 items-center">
+        <div className="rounded-xl overflow-hidden shadow-md h-80">
+          <iframe
+            title="Beech Street Lofts location map"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-119.2930%2C47.1240%2C-119.2636%2C47.1362&layer=mapnik&marker=47.1301%2C-119.2783"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            loading="lazy"
+            allowFullScreen
+          />
+        </div>
+        <div>
+          <h2 className="text-2xl font-bold text-slate-900 mb-6">Getting Around</h2>
+          <ul className="space-y-4">
+            {DISTANCES.map((item) => (
+              <li key={item.place} className="flex items-center justify-between border-b border-gray-100 pb-3">
+                <span className="text-slate-700 font-medium">{item.place}</span>
+                <span className="text-amber-600 font-semibold text-sm">{item.detail}</span>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="https://maps.google.com/?q=503+S+Beech+St,+Moses+Lake,+WA+98837"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-6 text-sm text-amber-600 font-semibold hover:underline"
+          >
+            Open in Google Maps →
+          </a>
+        </div>
+      </section>
 
       {/* Restaurants */}
       <section className="mb-16">
