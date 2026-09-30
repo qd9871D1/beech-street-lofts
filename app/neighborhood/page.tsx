@@ -10,12 +10,13 @@ export const metadata: Metadata = {
 
 const DISTANCES = [
   { place: "Samaritan Healthcare", detail: "~8 min drive" },
+  { place: "Confluence Health Moses Lake", detail: "~5 min drive" },
+  { place: "SILA Industries", detail: "~10 min drive" },
+  { place: "Wheeler Corridor", detail: "~5 min drive" },
   { place: "Downtown core", detail: "2 blocks" },
   { place: "Farmer's Market", detail: "Next door" },
+  { place: "Big Bend Community College", detail: "~7 min drive" },
   { place: "Grant County Airport", detail: "~10 min drive" },
-  { place: "Columbia Basin College", detail: "~7 min drive" },
-  { place: "Walmart / Shopping", detail: "~5 min drive" },
-  { place: "I-90 on-ramp", detail: "~5 min drive" },
 ];
 
 export default function NeighborhoodPage() {
