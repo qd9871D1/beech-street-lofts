@@ -3,7 +3,7 @@ export const SITE = {
   tagline: "Downtown Moses Lake | All-Inclusive Monthly Rentals",
   address: "513 Beech St, Moses Lake, WA 98837",
   phone: "509-855-1096",
-  email: "codylamb@gmail.com",
+  email: "info@beechstreetlofts.com",
   url: "https://beechstreetlofts.com",
   furnishedFinderUrl: "https://www.furnishedfinder.com/property/765838",
 };
@@ -39,7 +39,7 @@ export const UNITS = [
     name: "Unit 7D",
     title: "Loft 1-Bedroom | Unit 7D",
     price: 1595,
-    available: "October 31, 2026",
+    available: "September 30, 2026",
     ffUrl: "https://www.furnishedfinder.com/property/765838_2",
     deposit: 600,
     cleaningFee: 0,
