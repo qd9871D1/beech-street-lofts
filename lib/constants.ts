@@ -39,7 +39,7 @@ export const UNITS = [
     name: "Unit 7D",
     title: "Loft 1-Bedroom | Unit 7D",
     price: 1595,
-    available: "September 30, 2026",
+    available: "October 31, 2026",
     ffUrl: "https://www.furnishedfinder.com/property/765838_2",
     deposit: 600,
     cleaningFee: 0,
