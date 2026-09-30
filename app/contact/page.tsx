@@ -30,6 +30,14 @@ function ContactForm() {
         body: JSON.stringify(form),
       });
       if (!res.ok) throw new Error("Form submission failed");
+      // Fire GA4 lead conversion event
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "generate_lead", {
+          event_category: "contact",
+          event_label: form.unit || "any",
+          source: form.source || "unknown",
+        });
+      }
       setSubmitted(true);
     } catch {
       setError("Something went wrong. Please email us directly at " + SITE.email);
