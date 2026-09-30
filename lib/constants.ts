@@ -67,7 +67,7 @@ export const RESTAURANTS = [
   "Los Cocos Grill", "Pho Saigon", "J's Teriyaki", "Red Door Cafe",
   "Crisp Salad", "Wize Guys Beefs", "Shitake Sizzle", "Tsunami Sushi",
   "El Chele", "Rick's", "Mom & Pops Diner", "Tacos El Rey",
-  "El Rodeo", "Sporty's Steakhouse", "The Ripple", "Pita Pit",
+  "El Rodeo", "Sporty's Steakhouse", "The Ripple", "Pita Pit", "The Taco Shop",
 ];
 
 export const ATTRACTIONS = [
